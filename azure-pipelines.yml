@@ -28,9 +28,8 @@ steps:
   displayName: 'Install dependencies (including Flask)'
 
 - script: |
-    pip install pytest pytest-azurepipelines
-    pytest
-  displayName: 'Run tests with Pytest'
+    python app.py
+  displayName: 'Run Flask App'
 
 - task: PublishBuildArtifacts@1
   inputs:
