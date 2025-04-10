@@ -1,10 +1,8 @@
-
-
 trigger:
 - main
 
 pool:
-  vmImage: windows-latest
+  vmImage: 'windows-latest'
 
 strategy:
   matrix:
@@ -25,13 +23,15 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
+    pip install flask
     pip install -r requirements.txt
-  displayName: 'Install dependencies'
+  displayName: 'Install dependencies (including Flask)'
 
 - script: |
     pip install pytest pytest-azurepipelines
     pytest
-  displayName: 'pytest'
+  displayName: 'Run tests with Pytest'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
