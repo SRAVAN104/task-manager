@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+ul {
+    list-style-type: square;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+}
